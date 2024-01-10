@@ -1,1 +1,1 @@
-## Codes to locate web elements
+## Ways to locate web elements
