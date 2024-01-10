@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 public class TestAdvancedWebElements extends DriverSetup {
     @Test
     public void TestAdvancedElements() throws InterruptedException {
+//        WA Part - 3
         browser.get("https://trytestingthis.netlify.app/");
         System.out.println(browser.findElement(By.cssSelector("h1[style=\"font-family:Arial;\"]")).getText());
 
@@ -27,6 +28,33 @@ public class TestAdvancedWebElements extends DriverSetup {
 
 //        using ^
         System.out.println(browser.findElement(By.cssSelector("button[onclick^=\" window.open('http://google\"]")).getText());
+
+//        more examples of xpath and css selector
+        WebElement firstName = browser.findElement(By.xpath("//*[@id='fname']"));
+        firstName.sendKeys("Hello World xpath");
+        Thread.sleep(500);
+        firstName.clear();
+        firstName = browser.findElement(By.cssSelector("#fname"));
+        firstName.sendKeys("Hello World cssSelector");
+        Thread.sleep(500);
+
+//       12. table elements
+        System.out.println(browser.findElement(By.xpath("//tr /th[1]")).getText());
+        System.out.println(browser.findElement(By.xpath("//tr /th[3]")).getText());
+        System.out.println(browser.findElement(By.xpath("//tr /th[last()]")).getText());
+
+        System.out.println(browser.findElement(By.cssSelector("tr > th:first-child")).getText());
+        System.out.println(browser.findElement(By.cssSelector("tr > th:nth-child(3)")).getText());
+        System.out.println(browser.findElement(By.cssSelector("tr > th:last-child")).getText());
+
+//        table elements with text (only xpath)
+        System.out.println(browser.findElement(By.xpath("//td[text()='Personal Shopper']")).getText());
+        System.out.println(browser.findElement(By.xpath("//td[contains(text(),'ersonal Sh')]")).getText());
+//        preceding and following sibling
+        System.out.println(browser.findElement(By.xpath("//td[contains(text(),'Bong')] /preceding-sibling::td")).getText());
+        System.out.println(browser.findElement(By.xpath("//td[contains(text(),'Bong')] /following-sibling::td[last()]")).getText());
+
+
     }
 
 }

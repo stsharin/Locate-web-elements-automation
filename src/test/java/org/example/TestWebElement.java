@@ -8,6 +8,7 @@ public class TestWebElement extends DriverSetup{
 
     @Test
     public void TestElement() throws InterruptedException {
+//        WA Part - 2
         browser.get("https://trytestingthis.netlify.app/");
 
 //        getting title
