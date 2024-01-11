@@ -16,7 +16,7 @@ Ensure you have Java and Selenium WebDriver configured in your development envir
 Clone the repository to your local machine using:
 
 ```git bash
-git clone https://github.com/your-username/selenium-web-element-locators.git
+git clone https://github.com/stsharin/locating-elements-selenium.git
 ```
 
 ## Usage
