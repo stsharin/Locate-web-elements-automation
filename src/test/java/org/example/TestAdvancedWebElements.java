@@ -58,6 +58,7 @@ public class TestAdvancedWebElements extends DriverSetup {
 
     @Test
     public void testEX() throws InterruptedException {
+//        Eastern bank web problem solution
         browser.get("https://www.ebl.com.bd/");
         browser.findElement(By.xpath("//i[@class='fa fa-times']")).click();
         browser.findElement(By.xpath("//a[normalize-space()='Career']")).click();

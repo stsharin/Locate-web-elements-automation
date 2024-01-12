@@ -1,7 +1,11 @@
 package org.example;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WindowType;
 import org.testng.annotations.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GetNavigate extends DriverSetup{
     @Test
@@ -58,9 +62,37 @@ public class GetNavigate extends DriverSetup{
 //        all close
         browser.quit();
     }
-//    @Test
-//    public void testBrowserWindowHandle(){
-//
-//    }
+    @Test
+    public void testBrowserWindowHandle() throws InterruptedException {
+//        Part - 5
+        browser.get("https://rahulshettyacademy.com/AutomationPractice/");
+        System.out.println(browser.getTitle());
+
+//        unique window identification number
+        System.out.println(browser.getWindowHandle());
+        Thread.sleep(1000);
+
+        browser.findElement(By.id("openwindow")).click();
+        Thread.sleep(1000);
+        System.out.println(browser.getTitle());
+        browser.findElement(By.id("opentab")).click();
+        Thread.sleep(1000);
+        System.out.println(browser.getTitle());
+
+//        identification number in List
+        List<String> browserWindowHandles = new ArrayList<>(browser.getWindowHandles());
+
+        System.out.println(browserWindowHandles.get(0));
+        System.out.println(browserWindowHandles.get(1));
+        System.out.println(browserWindowHandles.get(2));
+
+//        each window title
+        browser.switchTo().window(browserWindowHandles.get(1));
+        System.out.println(browser.getTitle());
+        browser.switchTo().window(browserWindowHandles.get(0));
+        System.out.println(browser.getTitle());
+        browser.switchTo().window(browserWindowHandles.get(2));
+        System.out.println(browser.getTitle());
+    }
 
 }
